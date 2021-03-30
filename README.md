@@ -266,19 +266,3 @@
    - > a.b-c_d@a.b_
     
   ## 허용되지 않는 원시 HTML
-  
-  *ex)*  
-  
-  **[입력]**  
-  \<strong> <title> <style> <em>  
-
-  \<blockquote>  
-  \ <xmp> is disallowed.  <XMP> is also disallowed.  
-  \</blockquote>  
-     
-  **[출력]**    
-  <strong> <title> <style> <em>
-
-  <blockquote>
-   <xmp> is disallowed.  <XMP> is also disallowed.
-  </blockquote>
