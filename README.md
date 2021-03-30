@@ -266,3 +266,30 @@
    - > a.b-c_d@a.b_
     
   ## 허용되지 않는 원시 HTML
+  - 선행 < 을 \&lt; 로 대체하여 수행
+  - 이러한 태그들은 HTML이 그들 고유의 방식으로 해석되는 방법을 변경할 때 선택됨 ( 중첩된 HTML은 다르게 해석 )
+  - 다른 모든 HTML 태그는 그대로 유지
+    - <title>
+    - <textarea>
+    - <style>
+    - <xmp>
+    - <iframe>
+    - <noembed>
+    - <noframes>
+    - <script>
+    - <plaintext>
+
+  *ex)*  
+  **[입력]**   
+  \<strong> <title> <style> \<em>  
+  \
+  \<blockquote>  
+  \ <xmp> is disallowed.  <XMP> is also disallowed.  
+  \</blockquote>  
+     
+  **[출력]**    
+  <strong> <title> <style> <em>
+
+  <blockquote>
+   <xmp> is disallowed.  <XMP> is also disallowed.
+  </blockquote>
