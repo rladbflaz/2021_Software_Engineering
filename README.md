@@ -298,7 +298,7 @@
   \<strong> <title> <style> \<em>  
   \
   \<blockquote>  
-  \ <xmp> is disallowed.  <XMP> is also disallowed.  
+      <xmp> is disallowed.  <XMP> is also disallowed.  
   \</blockquote>  
      
   **[출력]**    
