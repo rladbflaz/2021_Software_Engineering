@@ -271,13 +271,13 @@
    - . - _ 는 @의 양쪽에서 사용가능
    - . 만 메일 주소 끝에서 사용 가능 ( 이 경우에는 주소의 일부로 간주되지 않음 )
    
-   - > a.b-c_d@a.b
+      - a.b-c_d@a.b
 
-   - > a.b-c_d@a.b.
+      - a.b-c_d@a.b.
 
-   - > a.b-c_d@a.b-
+      - a.b-c_d@a.b-
 
-   - > a.b-c_d@a.b_
+      - a.b-c_d@a.b_
     
   ## 허용되지 않는 원시 HTML
   - 선행 < 을 \&lt; 로 대체하여 수행
@@ -298,7 +298,7 @@
   \<strong> <title> <style> \<em>  
   \
   \<blockquote>  
-      <xmp> is disallowed.  <XMP> is also disallowed.  
+  \   <xmp> is disallowed.  <XMP> is also disallowed.  
   \</blockquote>  
      
   **[출력]**    
