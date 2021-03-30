@@ -141,4 +141,143 @@
 
   ---
   
+  # 업무 목록 항목
+  - `'-' '공백' '[' '공백 또는 소문자/대문자 X' ']'`로 구성  
+  - **대괄호 사이 문자가 공백인 경우** : 선택 취소
+  - **그렇지 않은 경우** : 선택
   
+  *ex)*  
+  
+  - [ ] foo
+  - [x] bar
+
+  ---
+
+  ### 들여쓰기로 중첩 가능
+  
+  *ex)*  
+  - [x] foo
+    - [ ] bar
+    - [x] baz
+  - [ ] bim
+
+  ---
+  
+  # 취소선
+  - ' ~~ ' 로 사용가능  
+ 
+  *ex)*  
+  
+  **[입력]** \~~안녕하세요~~ 저는 숭실대학교 학생입니다.
+  
+  **[출력]**
+  ~~안녕하세요~~ 저는 숭실대학교 학생입니다.
+  
+  - 빈 줄 입력 시 취소선 중단됨    
+  
+  *ex)*  
+  
+  오늘은 ~~미세먼지가
+  
+  너무 심해요~~
+  
+  ---
+  
+  # 자동 링크
+  
+  ## 텍스트 발견 후 유효한 도메인이 있을 때 확장된 www 자동 링크 인식
+  
+  ### http 자동 삽입  
+  - www.commonmark.org
+  
+  ### 유효한 도메인 이후에 공백이 없는 문자가 붙을 수 있음  
+  - Visit www.commonmark.org/helpfor more information.
+
+  ## 확장 자동 링크 경로 유효성 검사를 다음과 같이 적용
+  
+  ### 후행 구두점(?, !, ., , , :, *, _, ~)은 링크 내부에 포함될 수 있지만 자동 링크의 일부로 간주되지 않음.
+  
+  - Visit www.commonmark.org.
+
+  - Visit www.commonmark.org/a.b. -> 유효하지 않는 링크
+   
+   ### 괄호 수 검사
+   - 여는 괄호보다 닫히는 괄호 수가 더 많은 경우, 자동 링크의 일치하지 않는 후행 괄호 고려X
+   
+     www.google.com/search?q=Markup+(business)
+
+     www.google.com/search?q=Markup+(business)))
+
+     (www.google.com/search?q=Markup+(business))
+
+     (www.google.com/search?q=Markup+(business)
+     
+   - -> 4개의 링크 모두 구글 창에 Markup (business) 검색
+    
+   ### 검사는 링크가 닫는 괄호로 끝날 때만 수행되므로, 자동 링크 내부에 괄호만 있는 경우 다음과 같은 특별한 규칙 적용X
+   - www.google.com/search?q=(business))+ok
+   - -> 구글 창에 (business)) ok 검색
+    
+   ### 자동 링크가 ; 로 끝나는 경우 & 뒤에 텍스트 자동링크에서 제외
+   
+   - www.google.com/search?q=commonmark&hl=en
+
+   - www.google.com/search?q=commonmark&hl;
+
+   - -> 2개 링크 모두 구글 창에 commonmark 검색
+    
+   ### 링크 사이에 `<` 입력시 자동 링크 종료
+   
+   - www.commonmark.org/he<lp
+    
+   ### 확장 URL 자동 링크는 http:// 또는 https:// 뒤에 유효한 도메인이 있는 다음 공백이 아닌 문자를 사용할 때 인식됨
+   
+   - http://commonmark.org
+
+   - (Visit https://encrypted.google.com/search?q=Markup+(business))
+    
+   ### 이메일 링크
+   - 텍스트 내에 이메일 주소가 인식되면 확장된 이메일 자동 링크가 인식
+   - 이메일 주소는 다음 규칙을 따라야 함
+    - 영숫자 또는 ., -, _, +인 하나 이상의 문자
+    - @ 기호
+    - 마지막 문자는 - 또는 _ 중 하나일 수 없음
+   - 메일 수신자가 생성된 링크에 자동으로 추가됨
+   
+   - youro1228@naver.com
+   
+   ### 이메일 내 `+` 사용
+   - @ **앞** 텍스트에서는 + 사용 **가능**
+   - @ **뒤** 텍스트에서는 + 사용 **불가능**
+   
+   - youro1228@na+ver.com
+   - youro+1228@naver.com
+
+   ### 이메일 내 ` . - _ ` 사용
+   - . - _ 는 @의 양쪽에서 사용가능
+   - . 만 메일 주소 끝에서 사용 가능 ( 이 경우에는 주소의 일부로 간주되지 않음 )
+   
+   - > a.b-c_d@a.b
+
+   - > a.b-c_d@a.b.
+
+   - > a.b-c_d@a.b-
+
+   - > a.b-c_d@a.b_
+    
+  ## 허용되지 않는 원시 HTML
+  
+  *ex)*
+  **[입력]**  
+  \<strong> <title> <style> <em>  
+
+  \<blockquote>  
+   \<xmp> is disallowed.  <XMP> is also disallowed.  
+  \</blockquote>  
+     
+  **[출력]**  
+  <strong> <title> <style> <em>
+
+  <blockquote>
+   <xmp> is disallowed.  <XMP> is also disallowed.
+  </blockquote>
