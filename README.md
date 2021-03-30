@@ -1,13 +1,4 @@
 ## 테이블  
 
-dilimiter row -> ' - ' (1
+dilimiter row -> ' - ' ( 하이픈 )
 
-## 테이블  
-
-2
-
-
-
-3
-
-dilimiter row -> ' - ' (1
