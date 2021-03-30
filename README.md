@@ -267,15 +267,16 @@
     
   ## 허용되지 않는 원시 HTML
   
-  *ex)*
+  *ex)*  
+  
   **[입력]**  
   \<strong> <title> <style> <em>  
 
   \<blockquote>  
-   \<xmp> is disallowed.  <XMP> is also disallowed.  
+  \ <xmp> is disallowed.  <XMP> is also disallowed.  
   \</blockquote>  
      
-  **[출력]**  
+  **[출력]**    
   <strong> <title> <style> <em>
 
   <blockquote>
